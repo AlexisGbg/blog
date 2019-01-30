@@ -16,15 +16,37 @@
 	</div>
 </div>
 
-<div id="content-container">
+<div id="content-container"><div class="post">
+	<h2>Explore probabilities with Markov chains</h2>
+	<div class="has-content-area">
+		<p>
+		Imagine you’re travelling in another galaxy containing a form of life. You’re commissioned to find it but there is a problem: you cannot see anything because of a thick dark matter fog. The only tool for your purpose is a sensor indicating the probability that life is where you are. 
+		</p>
+		<p>
+		Well, then finding life will be difficult. But you can at least try to find the region having a high probability of containing life. To do so, you could take a little step in a direction randomly chosen, look a the probability, repeat and hope the probability will increase. This <b>random walk</b> is called Brownian motion and the diffusion equation tells us that you will be drained in the depths of the galaxy. Bad idea. The second option would also be to take a step in a random direction, but to go back if the probability of life decreases. If you do so your travel is deterministic and you will eventually land on the point in the universe having the highest life probability. Yeah! 
+		</p>
+		<p>
+		But wait: this probability might still be ridiculously small, and if you stay on this single point, you would do a far worse job than the one exploring a huge region of smaller but still significant probabilities. To explore this same huge region you just have take your deterministic algorithm, and allow sometime the probability of life to decrease. And your travel is the so called <b>Markov chain Monte Carlo</b> process (MCMC). 
+		</p>
+	</div>
+	<p class="byline">
+		<span class="date">JANUARY 30, 2019</span>
+	</p>
+	<div class="post-footer">
+		<p class="post-tags">
+		#MCMC #Algorithm #statistics
+		</p>
+	</div>
+</div>
+
 <div class="post">
 	<h2>Be careful, you’re tracked</h2>
 	<div class="has-content-area">
 		<p>
-		It begins like this: you’re visiting <i>www.abc.com</i> for the first time and you just clicked on the pop-up allowing cookies. At this moment, the site owner receives a fire at will acknowledgement and bombs yourself with tons of cookies. You’re tagged.
+		It begins like this: you’re visiting <i>www.abc.com</i> for the first time and you just clicked on the pop-up asking for permission to blah blah blah. At this moment, the site owner receives a fire at will acknowledgement and bombs your browser with tons of cookies. You’re tagged.
 		</p>
 		<p>
-		A cookie is a sticker bonded to your browser, containing a single piece of information about one of your actions on the website, and it will stay with you for a while (~30 days). The next time you go on this website, the website owner will be able to see these stickers, drop new ones, and build a profile of your person: what you've clicked, what you've liked, what you've visited. However, there is a bit of security in there: a website is only allowed to read its own cookies: it has by no way access to your Amazon / Google / Facebook cookies and can’t see what you did there. Whew. 
+		A cookie is a sticker containing a single piece of information about one of your actions on the website, and it will stay with you for a while (~30 days). The next time you go on this website, the website owner will be able to see these stickers, drop new ones, and build a profile of your person: what you've clicked, what you've liked, what you've visited. However, there is a bit of security in there: a website is only allowed to read its own cookies and it has by no way access to your Amazon / Google / Facebook cookies and can’t see what you did there. Whew. 
 		</p>
 		<p>
 		But oooh! there is a workaround... The cookie machine gun from <i>www.abc.com</i> can be placed on other websites. If another website accepts to do this, <i>www.abc.com</i> would be able to watch what’s happening there. Fortunately, there is no way that any Google would accept to do such a thing. However, the reverse is not true. Almost every website displaying ads on the internet has the Google cookie machine gun. The deal is simple: enable Google to watch what is going on on your website, and Google brings you ads and money. And here you’re tracked. 

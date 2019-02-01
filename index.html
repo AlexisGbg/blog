@@ -16,17 +16,70 @@
 	</div>
 </div>
 
-<div id="content-container"><div class="post">
+<div id="content-container">
+<div class="post">
+	<h2>Vectors for the price of numbers</h2>
+	<div class="has-content-area">
+		<p>
+		In the early ages of computing, a computer had one single brain, this brain could perform a single operation at the time and this was damn slow. Evolution came by and these brains transformed themselves in <b>CPU</b> beasts.
+		</p>
+		<p>
+		A Central Processing Unit (CPU) is all about numbers: it only understands numbers, will always answer with numbers and desperately needs to process numbers. If you insanely zoom in this computer brain, you’ll find where all the magic happens: the Arithmetic Logic Unit (<b>ALU</b>). This tiny machine has two baskets, called registers in the jargon, that each needs to be filled with a single number. As soon as it’s done, the ALU eats them, digests them, and throws you another number back. All fine, but how to get it faster?
+		</p>
+		<p>
+		In the quest for speed, CPUs have evolved and ALUs with them. In particular, the size of the baskets mentioned above got bigger, much bigger, so much bigger that it became a pity to only put a single number in them. So we filled the basket’s empty space with other numbers, building vectors, and made the ALUs digest these vectors for the price of numbers. 
+		</p>
+		<p>
+		And here is a step towards parallelization called <b>vectorization</b>!
+		</p>
+	</div>
+	<p class="byline">
+		<span class="date">FEBRUARY 1, 2019</span>
+	</p>
+	<div class="post-footer">
+		<p class="post-tags">
+		#computing #hardware #parallelization #vectorization
+		</p>
+	</div>
+</div>
+
+<div class="post">
+	<h2>Computational cost center</h2>
+	<div class="has-content-area">
+		<p>
+		Matrices are incredibly convenient to represent the world around us. They can be thought as maps, matching the real world to numbers, and you will definitely need them to simulate anything. But this comes at a cost: matrices are greedy, they want a lot of your computational power and this will slow you down...
+		</p>
+		<p>
+		If you have two numbers, you only need one logical operation to multiply them. If you have two vectors, each containing let say 10 numbers, you need 10 operations to multiply them. And there it comes: if you have two matrices, each having 10 rows and 10 columns, you almost need 2000 operations to multiply them. Now 2000 operations isn’t what a computer can’t handle, but double the number of rows and columns and you need eight times more operations (and therefore time) to perform the same computation: that’s the so called <b>cubic growth</b>. There are mathematical shortcuts to lower this huge growth but no matter what you do, this growth will always stay high. 
+		</p>
+		<p>
+		Aside from these tricks there isn’t much one can do about this problem but to helplessly hope the matrix won’t be too big and wait. The braver can try to <b>parallelize</b>, that is to collect computers and distribute the operations over them so that these can be done simultaneously. But here is the bitter truth: no matter how much computers one founds, should the matrix edges double in size and one would need 8 times as much computers for equal performance. 
+		</p>
+		<p>
+		One cannot compete with cubic growth. 
+		</p>
+	</div>
+	<p class="byline">
+		<span class="date">JANUARY 31, 2019</span>
+	</p>
+	<div class="post-footer">
+		<p class="post-tags">
+		#parallelization #complexity #computating 
+		</p>
+	</div>
+</div>
+
+<div class="post">
 	<h2>Explore probabilities with Markov chains</h2>
 	<div class="has-content-area">
 		<p>
 		Imagine you’re travelling in another galaxy containing a form of life. You’re commissioned to find it but there is a problem: you cannot see anything because of a thick dark matter fog. The only tool for your purpose is a sensor indicating the probability that life is where you are. 
 		</p>
 		<p>
-		Well, then finding life will be difficult. But you can at least try to find the region having a high probability of containing life. To do so, you could take a little step in a direction randomly chosen, look a the probability, repeat and hope the probability will increase. This <b>random walk</b> is called Brownian motion and the diffusion equation tells us that you will be drained in the depths of the galaxy. Bad idea. The second option would also be to take a step in a random direction, but to go back if the probability of life decreases. If you do so your travel is deterministic and you will eventually land on the point in the universe having the highest life probability. Yeah! 
+		Well, then finding life will be difficult. But you can at least try to find the region having a high probability of containing life. To do so, you could take a little step in a direction randomly chosen, look a the probability, repeat and hope the probability will increase. This <b>random walk</b> is called Brownian motion and the diffusion equation tells us that you will be drained in the depths of the galaxy. Bad idea. The second option would also be to take a step in a random direction, but to go back if the probability of life decreases. If you do so your travel will eventually land on the point in the universe having the highest life probability. Yeah! 
 		</p>
 		<p>
-		But wait: this probability might still be ridiculously small, and if you stay on this single point, you would do a far worse job than the one exploring a huge region of smaller but still significant probabilities. To explore this same huge region you just have to take your deterministic algorithm, and allow sometimes the probability of life to decrease. And your travel is the so called <b>Markov chain Monte Carlo</b> process (MCMC). 
+		But wait: this probability might still be ridiculously small, and if you stay on this single point, you would do a far worse job than the one exploring a huge region of smaller but still significant probabilities. However, to explore this same huge region, the trick is surprisingly simple: just allow yourself to sometimes go in direction lowering the probability of life. Conrgatulation, You now travel in a <b>Markov chain Monte Carlo</b> (MCMC) fashion. 
 		</p>
 	</div>
 	<p class="byline">

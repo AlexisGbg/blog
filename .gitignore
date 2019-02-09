@@ -1,0 +1,10 @@
+# blacklist everything
+*
+
+# whitelist any directory
+!*/
+
+# whitelist the wanted files
+!.gitignore
+!main/views.py
+

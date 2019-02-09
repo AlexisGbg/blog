@@ -13,3 +13,6 @@
 # whitelist subtrees with ** (stands for recursive)
 !main/static/**
 !main/templates/**
+
+# blacklist temporary files
+*~

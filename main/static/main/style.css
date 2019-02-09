@@ -19,22 +19,7 @@ h2{font-size: 2.2em;}
   left: 0;
   background-color: white;
   padding-top: 20px;
-  border-right: 3px solid black;
-}
-
-@media (max-width: 768px){
-	#sidebar {
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 90px;
-		border-right: none;
-		background-color: #fff;
-		z-index: 1;
-		overflow-y: auto;
-		overflow-x: hidden;
-	}
+  border-right: 2px solid black;
 }
 
 #header-border {
@@ -59,12 +44,13 @@ h2{font-size: 2.2em;}
   padding-left: 60px;
 }
 
-@media (max-width: 768px)
-#content-container {
-    width: 100%;
-    margin-top: 90px;
-    margin-left: 0;
-    padding: 0 40px;
+@media (max-width: 768px){
+	#sidebar {
+		visibility: hidden;
+	}
+	#content-container {
+		margin-left: 0px;	
+	}
 }
 
 .byline {

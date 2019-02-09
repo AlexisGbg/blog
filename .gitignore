@@ -13,3 +13,4 @@
 # whitelist subtrees with ** (stands for recursive)
 !main/static/**
 !main/templates/**
+!python_virtualenv/**

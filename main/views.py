@@ -7,7 +7,7 @@ from .models import Keyword
 
 
 
-# Create your views here.
+# Blog's main view
 def index(request):
     posts = Post.objects.order_by('-date')
     template = loader.get_template('main/base_content.html')
@@ -17,6 +17,7 @@ def index(request):
     return HttpResponse(template.render(context,request))
 
 
+# View incrementing the star counters
 def star(request, post_id):
     post = Post.objects.filter(id=post_id)[0]
     post.likes += 1

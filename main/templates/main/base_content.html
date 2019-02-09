@@ -1,0 +1,26 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+{% for post in posts %}
+<div class="post">
+	<h2>{{ post.title|safe }}</h2>
+	<div class="has-content-area">
+		{{ post.content|safe }}
+	</div>
+	<p class="byline">
+	<span class="date">{{ post.date }}</span>
+	</p>
+	<div class="post-footer">
+		<div id="star-the-post" class="stp" data-postid="{{ post.id }}">
+			<i class="fas fa-lg fa-star stp-icon" onclick="stp( {{ post.id }})"></i>
+			<span class="stp-count" id="stp-count{{ post.id }}">{{ post.likes }}</span>
+		</div>
+		<ul class="post-tags">
+			{% for keyword in post.keywords.all %}
+				<li>#{{ keyword.keyword }}</li>
+			{% endfor %}
+		</ul>
+	</div>
+</div>
+{% endfor %}
+{% endblock %}

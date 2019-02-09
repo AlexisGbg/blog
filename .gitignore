@@ -7,4 +7,9 @@
 # whitelist the wanted files
 !.gitignore
 !main/views.py
+!main/models.py
+!main/urls.py
 
+# whitelist subtrees with ** (stands for recursive)
+!main/static/**
+!main/templates/**

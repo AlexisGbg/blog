@@ -2,7 +2,14 @@ body {
     font-family: 'PT Serif',serif;
 }
 p{font-size: 1.1em;}
-h2{font-size: 2.2em;}
+h2{
+	font-size: 2.2em;
+	font-family: 'Source Sans Pro',sans-serif;
+    font-weight: 900;
+    letter-spacing: -.02em;
+    word-spacing: .05em;
+    line-height: 1.1em;
+}
 
 
 #flex-container{
@@ -20,6 +27,38 @@ h2{font-size: 2.2em;}
   background-color: white;
   padding-top: 20px;
   border-right: 2px solid black;
+}
+
+#sidebar h2 {
+	font-size: 16px;
+	margin: 0 0 5px 0; 
+}
+
+#sidebar #header-top {
+	margin-bottom: 150px; 	
+}
+
+#sidebar-content {
+	padding: 30px; 
+}
+
+.sidebar-widget {
+	margin-bottom: 30px;
+}
+.sidebar-widget p {
+	font-size: 15px; 	
+	font-family: 'Source Sans Pro',sans-serif;
+	margin: 0; 
+    text-align: justify;
+}
+.sidebar-widget ul {
+	list-style: none;
+	padding: 0px; 
+	margin-top: 0px; 
+}
+.sidebar-widget li {
+	font-size: 15px; 	
+	font-family: 'Source Sans Pro',sans-serif;
 }
 
 #header-border {

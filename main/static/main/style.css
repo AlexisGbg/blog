@@ -124,3 +124,7 @@ ul.post-tags li {
   display:inline;
   color: #696969;
 }
+
+#sidebar-footer {
+	color: white;	
+}

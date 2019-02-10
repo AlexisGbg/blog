@@ -24,6 +24,16 @@ def shuffle(request):
      		'posts': posts.all(), 
      	}
     return HttpResponse(template.render(context,request))
+    
+    
+# Return the top ten posts 
+def top10(request): 
+    posts = Post.objects.order_by('-likes')[:10]
+    template = loader.get_template('main/base_content.html')
+    context = {
+     		'posts': posts.all(), 
+     	}
+    return HttpResponse(template.render(context,request))
 
 
 # View incrementing the star counters

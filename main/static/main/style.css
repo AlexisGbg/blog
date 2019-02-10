@@ -11,6 +11,9 @@ h2{
     line-height: 1.1em;
 }
 
+a{
+	text-decoration: none; 	
+}
 
 #flex-container{
 	display: flex; 

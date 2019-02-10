@@ -2,6 +2,14 @@ body {
     font-family: 'PT Serif',serif;
 }
 p{font-size: 1.1em;}
+h1{
+	font-family: 'Source Sans Pro',sans-serif;
+    font-weight: 1100;
+    letter-spacing: -.03em;
+    word-spacing: .05em;
+    line-height: 1.5em;
+	
+}
 h2{
 	font-size: 2.2em;
 	font-family: 'Source Sans Pro',sans-serif;

@@ -11,9 +11,11 @@ h2{
     line-height: 1.1em;
 }
 
-a{
-	text-decoration: none; 	
-}
+a{text-decoration: none;}
+a {color:black;}      /* unvisited link */
+a:visited {color:black;}  /* visited link */
+a:hover {color:grey;}  /* mouse over link */
+a:active {color:black;}  /* selected link */
 
 #flex-container{
 	display: flex; 

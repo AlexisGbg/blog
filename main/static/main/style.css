@@ -122,8 +122,12 @@ a:active {color:black;}  /* selected link */
 
 .stp-icon {
 	cursor: pointer;
-	color: #FFB902;
+	color: #FFB902;   
 	margin-right: 5px; 
+}
+
+.stp-icon:hover {
+	transform: scale(1.5, 1.5);
 }
 
 div.stp {

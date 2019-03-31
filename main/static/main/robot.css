@@ -1,0 +1,54 @@
+#bow-tie path {
+  animation-name: spin;
+  animation-duration: 1000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-play-state: paused;
+}
+
+#bow-tie:hover path{
+  animation-play-state: running;
+}
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#robot-head{
+	fill: #b2b0b0
+}
+
+.eye .lid {
+	fill: #6a6969;
+	stroke: #6a6969;
+}
+
+.eye .pupil {
+	fill: #ffb900;
+	stroke: #c1bfbf;
+}
+
+.eye:hover .pupil {
+	fill: #ff8c00;
+}
+
+.mouth .interior {
+	fill: #FFFFFF
+}
+
+.mouth .outline {
+	fill: #6a6969;
+	stroke: #6a6969
+}
+
+#bow-tie .outline {
+	fill: #723f01;
+}
+
+#bow-tie .center {
+	fill: #4f2b00
+}

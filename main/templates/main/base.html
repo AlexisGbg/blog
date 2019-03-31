@@ -10,7 +10,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
 	<script src="{% static 'main/stp.js' %}"></script>
+	<script src="{% static 'main/robot.js' %}"></script>
 	<link rel="stylesheet" type="text/css" href="{% static 'main/style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'main/robot.css' %}">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<title>Alexis' Blog</title>
@@ -22,6 +24,106 @@
 		<div id="header-border"></div>
 		<div id="header-top">
 			<h1><a href="/">ALEXIS' BLOG</a></h1>
+		</div>
+		<div id="robot" style="margin:10px">
+			<svg version="1.1" viewbox="0 0 240 240">
+				<rect
+					id="robot-head"
+					x="0"
+					y="0"
+					rx="10"
+					ry="10"
+					width="240"
+					height="120"
+					stroke="#D0CFCF"
+					fill="#6bb2a4"
+					stroke-width="0"/>
+
+				<svg x=120 y =80 id="robot-mouth" class="mouth" overflow=auto>
+					<rect
+						class="outline"
+						x="-40"
+						y="-10"
+						rx="5"
+						ry="5"
+						width="80"
+						height="20"
+						stroke="#595858"
+						fill="#595858"
+						stroke-width="2"/>
+					<rect
+						class="interior"
+						x="-40"
+						y="-10"
+						rx="5"
+						ry="5"
+						width="80"
+						height="20"
+						stroke="#8e8c8c"
+						fill="#b2b0b0"
+						stroke-width="2"/>
+				</svg>
+
+				<svg x=160 y=40 id="robot-right-eye" class="eye" overflow=auto>
+					<rect
+						class="lid"
+						x=-10
+						y=-10
+						rx=10
+						ry=10
+						width="25"
+						height="20"
+						stroke="#595858"
+						fill="#595858"
+						stroke-width="5"/>
+					<circle
+						class="pupil"
+						cx="5"
+						cy="0"
+						r="10"
+						stroke="#8e8c8c"
+						fill="#e07281"
+						stroke-width="5"/>
+				</svg>
+				<svg x=80 y =40 id="robot-left-eye" class="eye" overflow=auto>
+					<rect
+						class="lid"
+						x="-20"
+						y="-20"
+						rx="20"
+						ry="20"
+						width="45"
+						height="40"
+						stroke="#595858"
+						fill="#595858"
+						stroke-width="5"/>
+					<circle
+						class="pupil"
+						cx="5"
+						cy="0"
+						r="20"
+						stroke="#8e8c8c"
+						fill="#e07281"
+						stroke-width="5"/>
+				</svg>
+				<svg x=120 y =132 overflow=auto id="bow-tie">
+					<path
+						class="outline"
+						fill="#7a2129"
+						d="M 0 0
+						 c 10 10 38 50 40 0
+						 c -2 -50 -30 -10 -40 0
+						 c -10 -10 -38 -50 -40 0
+						 c 2 50 30 10 40 0
+						 "/>
+					<circle
+						class="center"
+						fill="#AA7176"
+						cx="0"
+						cy="0"
+						r="10"/>
+				</svg>
+			</svg>
 		</div>
 		<div id="sidebar-content">
 			<div class="sidebar-widget">

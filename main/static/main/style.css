@@ -1,7 +1,16 @@
+/*========*/
+/* Global */
+/*========*/
+
 body {
     font-family: 'PT Serif',serif;
 }
 p{font-size: 1.1em;}
+
+
+/*=========*/
+/* Sidebar */
+/*=========*/
 h1{
 	font-family: 'Source Sans Pro',sans-serif;
     font-weight: 1100;
@@ -9,6 +18,9 @@ h1{
     word-spacing: .05em;
     line-height: 1.5em;
 	
+}
+#robot {
+    margin: 50px;
 }
 h2{
 	font-size: 2.2em;
@@ -40,6 +52,7 @@ a:active {color:black;}  /* selected link */
   background-color: white;
   padding-top: 20px;
   border-right: 2px solid black;
+  overflow-y: scroll;
 }
 
 #sidebar h2 {
@@ -48,7 +61,7 @@ a:active {color:black;}  /* selected link */
 }
 
 #sidebar #header-top {
-	margin-bottom: 100px; 	
+	margin-bottom: 50px;
 }
 
 #sidebar-content {

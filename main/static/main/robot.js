@@ -1,17 +1,17 @@
 /* Global variables */
 var clicked = false
 
-/* Event Handler */
+
+
+/*================*/
+/* Event Handlers */
+/*================*/
+
 function mousemoveHandler(e) {
     e = e || window.event;
 
-    var pageX = e.pageX;
-    var pageY = e.pageY;
-
-
-    eyeLookAt("robot-left-eye", e.pageX, e.pageY);
-	eyeLookAt("robot-right-eye", e.pageX, e.pageY);
-	mouthLookAt("robot-mouth", e.pageX, 10);
+    eyeLookAt("robot-left-eye", e.pageX, e.pageY - window.scrollY);
+	eyeLookAt("robot-right-eye", e.pageX, e.pageY - window.scrollY);
 }
 
 function clickHandler(e) {
@@ -27,16 +27,37 @@ function clickHandler(e) {
 	}
 }
 
-// attach handler to the click event of the document
-if (document.attachEvent) {
-	document.attachEvent('onmousemove', mousemoveHandler);
-	document.addEventListener('click', clickHandler);
-} else {
-	document.addEventListener('mousemove', mousemoveHandler);
-	document.addEventListener('click', clickHandler);
-}
+document.addEventListener('mousemove', mousemoveHandler);
+document.addEventListener('click', clickHandler);
+document.getElementById("robot-left-eye").addEventListener(
+    "mouseover",
+    function(){
+        pupilContraction("robot-left-eye", 0.25)
+    }
+);
+document.getElementById("robot-left-eye").addEventListener(
+    "mouseout",
+    function(){
+        pupilContraction("robot-left-eye", 4)
+    }
+);
+document.getElementById("robot-right-eye").addEventListener(
+    "mouseover",
+    function(){
+        pupilContraction("robot-right-eye", 0.25)
+    }
+);
+document.getElementById("robot-right-eye").addEventListener(
+    "mouseout",
+    function(){
+        pupilContraction("robot-right-eye", 4)
+    }
+);
 
 
+/*=====================*/
+/* Animation Functions */
+/*=====================*/
 
 function eyeZoom(eye_id, zoom_factor) {
 	// INIT
@@ -46,6 +67,7 @@ function eyeZoom(eye_id, zoom_factor) {
 	var current_pos = parseInt(pupil.getAttribute("cx"));
 	var target_pos = current_pos * zoom_factor
 	var step = (target_pos - current_pos)/20
+
 	// animation
 	var id = setInterval(frame, 5);
 	i = 0
@@ -53,10 +75,15 @@ function eyeZoom(eye_id, zoom_factor) {
 		if (current_pos == target_pos) {
 		  clearInterval(id);
 		} else {
-		  current_pos = current_pos + step
+			if (zoom_factor >= 1) {
+				current_pos = Math.min(current_pos + step, target_pos)
+			} else {
+				current_pos = Math.max(current_pos + step, target_pos)
+			}
 		  lid_width_new = parseFloat(lid.getAttribute("width")) + step;
 		  pupil.setAttribute("cx", current_pos.toString());
 		  lid.setAttribute("width", lid_width_new.toString());
+
 		}
 	}
 }
@@ -74,63 +101,33 @@ function eyeLookAt(eye_id, x_dom_coor, y_dom_coor) {
 	var pt_new = pt.matrixTransform(eye.getScreenCTM().inverse());
 	x = pt_new["x"]
 	y = pt_new["y"]
+
 	// Compute the angle
 	var target_angle = Math.round(Math.acos(x/(Math.sqrt(Math.pow(x,2) + Math.pow(y, 2))))/(2*Math.PI)*360);
 	var target_angle_sign = Math.sign(y);
 
+    // change the dom
 	pupil.setAttribute("transform", "rotate(" + target_angle_sign * target_angle + ")");
 	lid.setAttribute("transform", "rotate(" + target_angle_sign * target_angle + ")");
 }
 
-
-function mouthLookAt(mouth_id, x_dom_coor, shift_max) {
+function pupilContraction(eye_id, contraction_factor){
 	// INIT
-	var mouth = document.getElementById(mouth_id);
-	var interior = mouth.getElementsByClassName("interior")[0];
-	var outline =   mouth.getElementsByClassName("outline")[0];
+	var eye = document.getElementById(eye_id);
+	var pupil = eye.getElementsByClassName("pupil")[0];
+	var pupil_radius = parseFloat(pupil.getAttribute("r")) -
+					   parseFloat(pupil.getAttribute("stroke-width"))/2
+	var iris_radius =  parseFloat(pupil.getAttribute("r")) +
+					   parseFloat(pupil.getAttribute("stroke-width"))/2
 
-	// Convert x and y into the mouth coordinate system
-	var pt = mouth.createSVGPoint();
-	pt.x = x_dom_coor;
-	var pt_new = pt.matrixTransform(mouth.getScreenCTM().inverse());
-	shift = shift_max * (1 / (1+Math.exp(-0.05*pt_new["x"])) - 1/2) - 40
+	// new dimension
+	var pupil_radius_new = pupil_radius * contraction_factor
 
+	// translate new dimensions to parameters
+	var stroke_width_new = iris_radius - pupil_radius_new
+	var r_new = pupil_radius_new + stroke_width_new/2
 
-	interior.setAttribute("x", shift.toString());
+	// change the dom
+	pupil.setAttribute("r", r_new.toString())
+	pupil.setAttribute("stroke-width", stroke_width_new.toString())
 }
-
-
-// HOVERING
-// eyes
-robot_left_eye = d3.select("#robot-left-eye")
-robot_left_eye.on("mouseover", function() {
-    robot_left_eye.select(".pupil")
-		.transition()
-		.attr("r", 15)
-		.attr("stroke-width", 15)
-		.attr("fill", "#b71f9e");
-})
-robot_left_eye.on("mouseout", function() {
-    robot_left_eye.select(".pupil")
-		.transition()
-		.attr("r", 20)
-		.attr("stroke-width", 5)
-		.attr("fill", "#e07281");
-})
-
-
-robot_right_eye = d3.select("#robot-right-eye")
-robot_right_eye.on("mouseover", function() {
-    robot_right_eye.select(".pupil")
-		.transition()
-		.attr("r", 7.5)
-		.attr("stroke-width", 10)
-		.attr("fill", "#b71f9e");
-})
-robot_right_eye.on("mouseout", function() {
-    robot_right_eye.select(".pupil")
-		.transition()
-		.attr("r", 10)
-		.attr("stroke-width", 5)
-		.attr("fill", "#e07281");
-})

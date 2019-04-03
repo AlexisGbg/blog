@@ -1,27 +1,32 @@
-#bow-tie path {
-  animation-name: spin;
-  animation-duration: 1000ms;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  animation-play-state: paused;
+/*============*/
+/* Robot body */
+/*============*/
+
+#robot-head {
+	fill: #e0dfdf;
 }
 
-#bow-tie:hover path{
-  animation-play-state: running;
-}
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+#robot-makeup .robot-painting {
+    fill: #cdcbcb;
 }
 
-#robot-head{
-	fill: #b2b0b0
+#robot-makeup .robot-glasses {
+    stroke: white;
 }
 
+#robot-makeup .robot-belt {
+    stroke: white;
+}
+
+/*===============*/
+/* Robot members */
+/*===============*/
+/* Eyebrows */
+.robot-eyebrow {
+    stroke: #cdcbcb;
+}
+
+/* Eyes */
 .eye .lid {
 	fill: #6a6969;
 	stroke: #6a6969;
@@ -36,19 +41,7 @@
 	fill: #ff8c00;
 }
 
-.mouth .interior {
-	fill: #FFFFFF
-}
-
-.mouth .outline {
-	fill: #6a6969;
-	stroke: #6a6969
-}
-
-#bow-tie .outline {
-	fill: #723f01;
-}
-
-#bow-tie .center {
-	fill: #4f2b00
+/* Mouth */
+#robot-mouth {
+    stroke: #8e8c8c;
 }
